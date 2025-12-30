@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 任意でカスタムCSSも追加 */
+body {
+  font-family: 'Inter', sans-serif;
+}

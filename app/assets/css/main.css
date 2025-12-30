@@ -1,0 +1,191 @@
+* {
+  margin:0; padding:0;
+}
+
+a {
+  color: black;
+  text-decoration: none
+}
+
+body {
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+#contents {
+  padding-right: 10%;
+  padding-left: 10%;
+  text-align: left;
+}
+
+#contents a {
+  color: #27c3cf;
+  text-decoration: underline;
+}
+
+#contents a {
+  color: #27c3cf;
+  text-decoration: underline;
+}
+
+img {
+  border: solid 1px #777; /* 色：グレー */
+}
+
+#About {
+  padding:1% 0%; 
+}
+
+#Skills {
+  padding: 1% 0%; 
+}
+
+#Works {
+  padding: 1% 0%; 
+}
+
+#Links {
+  padding: 1% 0%; 
+}
+
+#Contact {
+  padding: 1% 0%;
+}
+
+header {
+  width: 100%;
+  padding: 15px 0;
+  margin: 0 auto;
+  text-align: center;
+  min-width: 400px;
+  background-color: #e5e5e5;
+}
+header .headline{
+  font-size: 32px;
+}
+.nav-list {
+  text-align: center;
+  padding: 10px 0;
+  margin: 0 auto;
+}
+.nav-list-item {
+  list-style: none;
+  display: inline-block;
+  margin: 0 20px;
+}
+
+.nav-list-item:hover {
+  background-color: rgba(255, 255, 255, 0.75);
+}
+
+hr {
+	border: 0;
+	height: 8px;
+	background-image:
+		repeating-linear-gradient(45deg, #777 0px, #777 1px, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 50%),
+		repeating-linear-gradient(135deg, #777 0px, #777 1px, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 50%);
+	background-size: 8px 8px;
+}
+
+.cp_qa01 {
+  border-top: 1px solid black;
+}
+.cp_qa01 .cp_actab input {
+  display: none;
+}
+/*質問テキスト*/
+.cp_qa01 .cp_actab {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  margin-bottom: 1px;
+  color: black;
+}
+.cp_qa01 .cp_actab label {
+  font-weight: bold;
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin: 0 0 0 0;
+  padding: 1em 2em 1em 1em;
+  cursor: pointer;
+  border-bottom: 1px solid black;
+}
+.cp_qa01 .cp_actab .cp_actab-content p {
+  margin: 1em;
+}
+.cp_qa01 .cp_actab label:hover {
+  color: #27c3cf;
+}
+.cp_qa01 .cp_actab input:checked ~ label {
+  color: #27c3cf;
+}
+/*答えテキスト*/
+.cp_qa01 .cp_actab .cp_actab-content {
+  overflow: hidden;
+  max-height: 0;
+  color: #ffffff;
+  background: #27c3cf;
+  transition: max-height 0.5s ease;
+}
+.cp_qa01 .cp_actab input:checked ~ .cp_actab-content {
+  max-height: 40em;
+}
+/*▼アイコン*/
+.cp_qa01 .cp_actab label::after {
+  position: absolute;
+  content: '';
+  right: 10px;
+  width: 15px;
+  height: 10px;
+  background: black;
+  clip-path: polygon(0 0, 50% 100%, 100% 0);
+  transition: all 0.5s ease;
+}
+.cp_qa01 .cp_actab label:hover::after {
+  background: #27c3cf;
+}
+.cp_qa01 .cp_actab input[type=checkbox]:checked + label::after {
+  transform: rotateX(180deg);
+  background: #27c3cf;
+}
+
+/* フッターここから */
+
+.footer02 {
+  color: #808080;
+  background: #e5e5e5;
+  text-align: center;
+  padding: 30px;
+}
+
+.footer02 a {
+  color: #808080;
+  text-decoration: none;
+}
+
+.footer02 a:hover {
+  text-decoration: underline;
+}
+
+.footer02 .menu {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.footer02 .menu li {
+  margin: 0;
+  padding: 0 20px;
+}
+
+.footer02 .copyright {
+  margin: 0;
+  padding: 20px 0 0 0;
+}
+
+/* フッターここまで */
