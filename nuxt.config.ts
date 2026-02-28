@@ -1,8 +1,7 @@
 export default defineNuxtConfig({
   modules: ['@nuxtjs/tailwindcss'],
   css: [
-    '~/assets/css/tailwind.css',  // 既存のTailwind CSS
-    '~/assets/css/main.css',      // index.htmlから移行するCSS
+    '~/assets/css/tailwind.css',  // 統合されたTailwind CSS
     'lightbox2/dist/css/lightbox.min.css'
   ],
   tailwindcss: {

@@ -1,123 +1,60 @@
 <template>
-  <div>
-    <header>
-      <h1 class="headline">
-        <a>minenaの部屋</a>
-      </h1>
-      <ul class="nav-list">
-        <li class="nav-list-item"><a href="#About">About me</a></li>
-        <li class="nav-list-item"><a href="#Works">Works</a></li>
-        <li class="nav-list-item"><a href="https://nmst0811.github.io/TryToNuxt/">Article</a></li>
-        <li class="nav-list-item"><a href="#Contact">Contact</a></li>
-      </ul>
+  <div class="min-h-screen bg-gray-950 text-gray-100 font-sans selection:bg-cyan-500/30">
+    <!-- Layout Wrapper -->
+    <header class="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-gray-950/75 border-b border-gray-800 transition-all duration-300">
+      <div class="max-w-5xl mx-auto px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-2">
+        <NuxtLink to="/" class="text-2xl font-black tracking-tighter bg-gradient-to-r from-cyan-400 to-fuchsia-400 bg-clip-text text-transparent hover:scale-105 transition-transform">
+          Umamimi
+        </NuxtLink>
+        <nav>
+          <ul class="flex items-center gap-1">
+            <li v-for="item in navItems" :key="item.label">
+              <NuxtLink
+                v-if="!item.external"
+                :to="item.href"
+                class="px-4 py-1.5 rounded-full text-sm font-bold text-gray-400 hover:text-cyan-400 hover:bg-cyan-400/10 transition-all duration-200"
+                active-class="text-cyan-400 bg-cyan-400/10"
+              >{{ item.label }}</NuxtLink>
+              <a
+                v-else
+                :href="item.href"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="px-4 py-1.5 rounded-full text-sm font-bold text-gray-400 hover:text-fuchsia-400 hover:bg-fuchsia-400/10 transition-all duration-200"
+              >{{ item.label }}</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
     </header>
 
-    <div id="contents">
-      <!-- About -->
-      <section id="About">
-        <h2 class="About">About</h2>
-        <p>
-          Name:minena<br>
-          大阪公立大学工業高等専門学校 在学中<br>
-          3年知能情報コース / 17歳<br>
-          学友会執行部 / 汽車倶楽部 / MikuIT / ボカロ紅白歌合戦 所属<br>
-          (2025年7月現在)
-        </p>
-      </section>
+    <NuxtPage />
 
-      <hr>
-
-      <!-- Skills -->
-      <section id="Skills">
-        <h2>Skills</h2>
-        <div class="skills-images">
-          <a id="html5" href="/images/Skills/HTML5.png" data-lightbox="skills" data-title="HTML5:授業・独学で習った程度">
-            <img src="/images/Skills/HTML5.png" alt="HTML5" width="150">
-          </a>
-          <a id="css3" href="/images/Skills/CSS3.png" data-lightbox="skills" data-title="CSS3:授業・独学で習った程度">
-            <img src="/images/Skills/CSS3.png" alt="CSS3" width="150">
-          </a>
-          <a id="javascript" href="/images/Skills/JavaScript.png" data-lightbox="skills" data-title="JavaScript:独学で理解できる程度">
-            <img src="/images/Skills/JavaScript.png" alt="JavaScript" width="150">
-          </a>
-          <a id="python" href="/images/Skills/Python.png" data-lightbox="skills" data-title="Python:授業で習った程度">
-            <img src="/images/Skills/Python.png" alt="Python" width="150">
-          </a>
-          <a id="Arduino" href="/images/Skills/Arduino.png"  data-lightbox="skills" data-title="Arduino:授業で習った程度">
-            <img src="/images/Skills/Arduino.png" alt="" width="150">
-          </a>
-          <a id="Git" href="/images/Skills/Git.png"  data-lightbox="skills" data-title="Git:授業で習った程度">
-            <img src="/images/Skills/Git.png" alt="" width="150">
-          </a>
-          <a id="Git" href="/images/Skills/GitHub.png"  data-lightbox="skills" data-title="GitHub:授業で習った程度">
-            <img src="/images/Skills/GitHub.png" alt="" width="150">
-          </a>
-          <a id="tinkercad" href="/images/Skills/tinkercad.png"  data-lightbox="skills" data-title="tinkercad:授業で習った程度">
-            <img src="/images/Skills/tinkercad.png" alt="" width="150">
-          </a>
-        </div>
-
-        <div class="cp_qa01">
-          <div class="cp_actab">
-            <input id="cp_tabfour011" type="checkbox" name="tabs">
-            <label for="cp_tabfour011">Others</label>
-            <div class="cp_actab-content">
-              <p>以下は趣味でやっていることです。ここに記載しているものはある程度人に教えることができます。</p>
-              <a id="fusion" href="/images/Skills/fusion.png" data-lightbox="skills-other" data-title="fusion:ポリゴンのモデリングの代用で利用しています。">
-                <img src="/images/Skills/fusion.png" alt="fusion" width="150">
-              </a>
-              <!-- 他の趣味スキルも同様に続く -->
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <hr>
-
-      <!-- Works -->
-      <section id="Works">
-        <h2>Works</h2>
-        <ul>
-          <li><a href="https://colab.research.google.com/drive/1aQfIRkB5sl9S3uFi-EicKkGd39ZIZvpA?usp=sharing">｢Pythonで曲を奏でよう｣</a></li>
-          <li><a href="https://yurei0903.github.io/power2_7-4-main/">2⁷-4「クイズリバーシ」</a></li>
+    <footer class="bg-gray-900/50 border-t border-gray-800 py-20 px-6">
+      <div class="max-w-5xl mx-auto flex flex-col items-center">
+        <div class="text-2xl font-black text-blue-700 tracking-tighter mb-8 bg-gradient-to-r from-cyan-400 to-fuchsia-400 bg-clip-text text-transparent">Umamimi</div>
+        <ul class="flex flex-wrap justify-center gap-x-8 gap-y-4 mb-10">
+          <li v-for="item in navItems" :key="item.label">
+            <component
+              :is="item.external ? 'a' : 'NuxtLink'"
+              :to="!item.external ? item.href : undefined"
+              :href="item.external ? item.href : undefined"
+              :target="item.external ? '_blank' : undefined"
+              class="text-sm font-bold text-gray-500 hover:text-cyan-400 transition-colors duration-200"
+            >{{ item.label }}</component>
+          </li>
         </ul>
-        <a href="/images/Works/quizreversi_01.png" data-lightbox="works"><img src="/images/Works/quizreversi_01.png" alt="" width="300"></a>
-        <a href="/images/Works/quizreversi_02.png" data-lightbox="works"><img src="/images/Works/quizreversi_02.png" alt="" width="300"></a>
-      </section>
-
-      <hr>
-
-      <!-- Links -->
-      <section id="Links">
-        <h2>Links</h2>
-        <ul>
-          <li><a href="https://x.com/omuct_gakuyukai">学友会執行部 公式X(旧Twitter)</a></li>
-          <li><a href="https://twitter.com/ClubKisya">汽車倶楽部 公式X(旧Twitter)</a></li>
-          <li><a href="https://x.com/MikuITech">MikuIT 公式X(旧Twitter)</a></li>
-        </ul>
-      </section>
-
-      <hr>
-
-      <!-- Contact -->
-      <section id="Contact">
-        <h2>Contact</h2>
-        <p>
-          rj23098g[at]st.omu.ac.jp または
-          rj23098g[at]yahoo.co.jpにご連絡ください。<br>
-          ([at]を@に置き換えてください)
-        </p>
-      </section>
-    </div>
-
-    <footer class="footer02">
-      <ul class="menu">
-        <li><a href="#About">About me</a></li>
-        <li><a href="#Works">Works</a></li>
-        <li><a href="https://nmst0811.github.io/TryToNuxt/">Article</a></li>
-        <li><a href="#Contact">Contact</a></li>
-      </ul>
-      <p class="copyright">&copy; minena/Umamimi</p>
+        <div class="w-full max-w-xs h-px bg-gray-800 mb-10"></div>
+        <p class="text-center text-gray-600 text-[10px] font-black uppercase tracking-[0.2em]">&copy; Umamimi / minena</p>
+      </div>
     </footer>
   </div>
 </template>
+
+<script setup lang="ts">
+const navItems = [
+  { label: 'Home', href: '/', external: false },
+  { label: 'Works', href: '/works', external: false },
+  { label: 'Article', href: 'https://nmst0811.github.io/TryToNuxt/', external: true },
+]
+</script>

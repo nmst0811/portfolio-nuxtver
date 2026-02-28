@@ -2,7 +2,31 @@
 @tailwind components;
 @tailwind utilities;
 
-/* 任意でカスタムCSSも追加 */
-body {
-  font-family: 'Inter', sans-serif;
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    @apply bg-gray-950;
+  }
+}
+
+/* Custom scrollbar for Dark Theme */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #030712;
+  /* gray-950 */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1f2937;
+  /* gray-800 */
+  border-radius: 5px;
+  border: 2px solid #030712;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #374151;
+  /* gray-700 */
 }
