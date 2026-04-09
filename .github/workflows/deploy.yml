@@ -29,4 +29,6 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           server-dir: /www/mypf/ # ここを mypf に設定
           local-dir: .output/public/
+          dangerous-clean-slate: false
+          timeout: 60000
           delete: true # サーバー上の古いファイルを自動削除して同期
