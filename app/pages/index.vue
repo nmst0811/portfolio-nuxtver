@@ -9,10 +9,10 @@ const navItems = [
 ]
 
 const aboutItems = [
-  { label: 'Name', value: 'minena / Umamimi' },
+  { label: 'Name', value: 'minena / nmst0811' },
   { label: '所属', value: '大阪公立大学工業高等専門学校' },
-  { label: '学年・コース', value: '3年 知能情報コース / 18歳' },
-  { label: '所属団体', value: '学友会執行部 / 汽車倶楽部 / MikuIT / ボカロ紅白歌合戦' },
+  { label: '学年・コース', value: '4年 知能情報コース / 18歳' },
+  { label: '所属団体', value: '汽車倶楽部 / MikuIT / ボカロ紅白歌合戦 / 学友会執行部' },
 ]
 
 const primarySkills = [
@@ -57,7 +57,7 @@ const links = [
       
       <div class="max-w-3xl mx-auto">
         <h2 class="text-7xl sm:text-8xl font-black mb-6 text-white tracking-tighter leading-none">
-          Umamimi
+          minena
         </h2>
         <p class="text-gray-400 text-xl font-medium max-w-lg mx-auto leading-relaxed">
           高専生 / エンジニア志望 / 照明オペレーター
@@ -87,7 +87,7 @@ const links = [
             <p class="text-gray-100 font-bold text-xl leading-tight">{{ info.value }}</p>
           </div>
         </div>
-        <p class="mt-8 text-xs text-gray-500 font-bold text-right italic uppercase tracking-widest">(2025年8月現在)</p>
+        <p class="mt-8 text-xs text-gray-500 font-bold text-right italic uppercase tracking-widest">(2026年4月現在)</p>
       </section>
 
       <Divider />
