@@ -18,7 +18,7 @@ if (!work) {
       </NuxtLink>
       <h2 class="text-4xl sm:text-6xl font-black text-white tracking-tighter leading-tight mb-4">
         {{ work.title }}
-      </h2>
+      </h2>https://www.youtube.com/?gl=JP&hl=ja
       <div class="flex flex-wrap gap-4 items-center">
         <span class="text-xs font-black text-cyan-400 uppercase tracking-widest border border-cyan-400/30 px-4 py-1.5 rounded-full bg-cyan-400/5">
           {{ work.period }}
