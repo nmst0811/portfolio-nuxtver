@@ -6,13 +6,16 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    env:
+      # Node.js 24への移行警告に対応（任意ですが入れておくと安心です）
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     steps:
       - uses: actions/checkout@v4
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '24' # 警告に従い24に上げます
           cache: 'npm'
 
       - name: Install dependencies
@@ -27,8 +30,10 @@ jobs:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          server-dir: /www/mypf/ # ここを mypf に設定
+          # フォルダ名の前後のスラッシュを正確に
+          server-dir: www/mypf/ 
           local-dir: .output/public/
-          dangerous-clean-slate: false
+          # 'delete' ではなくこちらを使います（既存ファイルを整理したい場合）
+          dangerous-clean-slate: false 
+          # 接続トラブル回避のためタイムアウトを延長
           timeout: 60000
-          delete: true # サーバー上の古いファイルを自動削除して同期
