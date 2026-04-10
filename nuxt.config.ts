@@ -16,22 +16,21 @@ export default defineNuxtConfig({
       // 共通のメタ情報
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1.0, user-scalable=yes',
-      title: 'About me | minenaの部屋', // index.htmlから移行
+      title: 'About me | minena', // index.htmlから移行
       meta: [
         { 'http-equiv': 'X-UA-Compatible', content: 'IE=edge' },
         { property: 'og:type', content: 'website' },
         { property: 'og:title', content: 'minenaのPortfolio' },
         { property: 'og:url', content: 'https://nmst0811.github.io/portfolio/' },
-        { property: 'og:description', content: 'minenaのPortfolio。ただ、それだけ。' },
+        { property: 'og:description', content: 'minenaのPortfolio。' },
         { property: 'og:site_name', content: 'minenaのPortfolio' },
         { property: 'og:locale', content: 'ja_JP' }
       ],
       // ファビコン・タッチアイコンの設定
       link: [
         // Apple Touch Icon (既存のPNGファイルを想定)
-        { rel: 'apple-touch-icon', href: '/images/icon.png', sizes: '180x180' },
+        { rel: 'apple-touch-icon', href: '/images/icon.svg', sizes: '180x180' },
         
-        // ★★★ 修正後の SVG ファビコン ★★★
         // public/images/icon.svg を参照します
         { rel: 'icon', href: '/images/icon.svg', type: 'image/svg+xml' },
 
