@@ -198,7 +198,7 @@ const links = [
             <h4 class="text-4xl font-black mb-6 tracking-tighter text-white">Contact Info</h4>
             <div class="space-y-4">
               <p class="inline-block bg-white/10 px-6 py-4 rounded-2xl backdrop-blur-md border border-white/20 font-mono font-bold text-white text-lg w-full">
-                rj23098g[at]st.omu.ac.jp
+                nakamine[at]saphir-vis.com
               </p>
               <p class="inline-block bg-white/10 px-6 py-4 rounded-2xl backdrop-blur-md border border-white/20 font-mono font-bold text-white text-lg w-full">
                 rj23098g[at]yahoo.co.jp

@@ -16,7 +16,7 @@ const isOpen = ref(false)
       @click="isOpen = !isOpen"
       class="w-full flex items-center justify-between p-7 text-left hover:bg-gray-900 transition-all group"
     >
-      <span class="font-black text-gray-400 group-hover:text-white transition-colors tracking-tight uppercase tracking-[0.1em]">{{ label }}</span>
+      <span class="font-black text-gray-400 group-hover:text-white transition-colors uppercase tracking-[0.1em]">{{ label }}</span>
       <div
         class="w-10 h-10 rounded-2xl bg-gray-900 flex items-center justify-center text-cyan-400 transition-all duration-500 group-hover:bg-cyan-400 group-hover:text-black shadow-lg"
         :class="{ 'rotate-180 bg-fuchsia-400 text-black': isOpen }"
