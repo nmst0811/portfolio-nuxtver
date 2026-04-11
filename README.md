@@ -1,75 +1,18 @@
-# Nuxt Minimal Starter
+# minenaのportfolio
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+URL: https://portfolio-saphir-vis.com
 
-## Setup
+## 開発期間
+2024年10月25日〜: 初版
+2026年4月10日～: リニューアル
 
-Make sure to install dependencies:
+## 使用技術
+Nuxt4
+microCMS
+Tailwind CSS
+(2026.04~)
 
-```bash
-# npm
-npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+HTML
+CSS
+JavaScript
+(2024.10~2026.01)
