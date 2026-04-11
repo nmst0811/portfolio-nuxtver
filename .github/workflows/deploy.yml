@@ -36,7 +36,7 @@ jobs:
           # フォルダ名の前後のスラッシュを正確に
           server-dir: www/mypf/ 
           local-dir: .output/public/
-          # 'delete' ではなくこちらを使います（既存ファイルを整理したい場合）
-          dangerous-clean-slate: false 
-          # 接続トラブル回避のためタイムアウトを延長
-          timeout: 60000
+          protocol: ftp
+          port: 21
+          timeout: 120000 # 2分まで待つ設定
+          dangerous-clean-slate: false
