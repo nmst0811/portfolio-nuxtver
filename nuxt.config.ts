@@ -42,4 +42,12 @@ export default defineNuxtConfig({
   },
 
   compatibilityDate: '2025-11-14',
+
+  runtimeConfig: {
+    public: {
+      microcmsServiceDomain: process.env.MICROCMS_SERVICE_DOMAIN,
+      microcmsApiKey: process.env.MICROCMS_API_KEY,
+    }
+  }
+
 })

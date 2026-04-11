@@ -1,5 +1,7 @@
 <script setup lang="ts">
-import { worksData } from '~/utils/worksData'
+const { getWorks } = useMicroCMS()
+const { data: worksResponse } = await useAsyncData('latest-works', () => getWorks({ limit: 5 }))
+const latestWorks = computed(() => worksResponse.value?.contents || [])
 
 const navItems = [
   { label: 'About me', href: '#About' },
@@ -37,7 +39,6 @@ const otherSkills = [
   { id: 'MS365', img: '/images/Skills/MS360.png', title: 'Microsoft 365: 事務業務等しています。' },
 ]
 
-const latestWorks = worksData.slice(0, 5)
 
 const links = [
   { label: '学友会執行部 公式X（旧Twitter）', href: 'https://x.com/omuct_gakuyukai' },
@@ -157,7 +158,7 @@ const links = [
                   <img
                     v-for="(img, idx) in work.images.slice(0, 3)"
                     :key="idx"
-                    :src="img.src"
+                    :src="img.url"
                     class="inline-block h-12 w-12 rounded-full ring-4 ring-gray-900 object-cover"
                   />
                 </div>

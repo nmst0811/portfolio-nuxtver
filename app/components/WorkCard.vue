@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Work } from '~/utils/worksData'
+import type { Work } from '~/types/microcms'
 
 defineProps<{
   work: Work
@@ -32,9 +32,9 @@ defineProps<{
       <div
         v-for="(img, idx) in work.images.slice(0, 3)"
         :key="idx"
-        class="aspect-video rounded-2xl overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-700 border border-gray-800"
+        class="aspect-video rounded-2xl overflow-hidden border border-gray-800"
       >
-        <img :src="img.src" class="w-full h-full object-cover" />
+        <img :src="img.url" class="w-full h-full object-cover" />
       </div>
     </div>
   </div>
