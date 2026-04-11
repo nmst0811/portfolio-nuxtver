@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import type { Work } from '~/types/microcms'
+
 const { getWorks } = useMicroCMS()
 
 // 全データから各カテゴリの最新1件を抽出するために多めに取得
@@ -10,11 +12,14 @@ const latestMovie = computed(() => allWorks.value.find(w => w.category?.slug ===
 const latestEvent = computed(() => allWorks.value.find(w => w.category?.slug === 'events-lighting'))
 
 // 表示用の配列
-const featuredWorks = computed(() => [
-  { work: latestProduct.value, label: 'Products', subLabel: 'プロダクト制作' },
-  { work: latestMovie.value, label: 'Movie', subLabel: '映像制作' },
-  { work: latestEvent.value, label: 'Events / Lighting', subLabel: 'イベント運営 / 照明' }
-].filter(item => item.work))
+const featuredWorks = computed(() => {
+  const items = [
+    { work: latestProduct.value, label: 'Products', subLabel: 'プロダクト制作' },
+    { work: latestMovie.value, label: 'Movie', subLabel: '映像制作' },
+    { work: latestEvent.value, label: 'Events / Lighting', subLabel: 'イベント運営 / 照明' }
+  ]
+  return items.filter((item): item is { work: Work; label: string; subLabel: string } => !!item.work)
+})
 
 const navItems = [
   { label: 'About me', href: '#About' },
@@ -160,7 +165,7 @@ const links = [
             <!-- Thumbnail Logic -->
             <div v-if="item.work.images && item.work.images.length > 0" class="aspect-video overflow-hidden border-b border-gray-800">
               <img
-                :src="item.work.images[0].url"
+                :src="item.work.images[0]?.url"
                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
               />
             </div>
