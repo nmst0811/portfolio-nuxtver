@@ -10,7 +10,7 @@ const isOpen = ref(false)
 </script>
 
 <template>
-  <div class="border border-gray-900 rounded-[2rem] overflow-hidden bg-gray-950 shadow-inner group transition-all duration-500">
+  <div class="border border-gray-900 rounded-[2rem] overflow-hidden bg-gray-950 shadow-inner transition-all duration-500">
     <button
       type="button"
       @click="isOpen = !isOpen"

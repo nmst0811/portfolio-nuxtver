@@ -11,11 +11,12 @@ URL: https://portfolio-saphir-vis.com
 - Nuxt4
 - microCMS
 - Tailwind CSS
+- microCMS
 
 (2026.04~)
 
 - HTML
 - CSS
--JavaScript
+- JavaScript
 
 (2024.10~2026.03)

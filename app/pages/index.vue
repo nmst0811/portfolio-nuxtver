@@ -38,8 +38,16 @@ const aboutItems = [
 const primarySkills = [
   { id: 'HTML5', img: '/images/Skills/HTML5.png', title: 'HTML5: 授業・独学で習った程度' },
   { id: 'CSS3', img: '/images/Skills/CSS3.png', title: 'CSS3: 授業・独学で習った程度' },
-  { id: 'JavaScript', img: '/images/Skills/JavaScript.png', title: 'JavaScript: 独学で理解できる程度' },
+  { id: 'JavaScript', img: '/images/Skills/JavaScript.png', title: 'JavaScript: 授業で習った程度' },
+  { id: 'TypeScript', img: '/images/Skills/TypeScript.png', title: 'TypeScript: 授業で習った程度' },
+  { id: 'React', img: '/images/Skills/react.png', title: 'React: 授業で習った程度' },
+  { id: 'Next.js', img: '/images/Skills/Nextjs.png', title: 'Next.js: 授業で習った程度' },
+  { id: 'Nuxt.js', img: '/images/Skills/Nuxtjs.png', title: 'Nuxt.js: 独学で習った程度' },
+  { id: 'Tailwind CSS', img: '/images/Skills/tailwind.png', title: 'Tailwind CSS: 授業で習った程度' },
   { id: 'Python', img: '/images/Skills/Python.png', title: 'Python: 授業で習った程度' },
+  { id: 'C', img: '/images/Skills/C.png', title: 'C: 授業で習った程度' },
+  { id: 'MicroCMS', img: '/images/Skills/microcms.png', title: 'MicroCMS: 授業・独学で習った程度' },
+  { id: 'Supabase', img: '/images/Skills/supabase.png', title: 'Supabase: 授業で習った程度' },
   { id: 'Arduino', img: '/images/Skills/Arduino.png', title: 'Arduino: 授業で習った程度' },
   { id: 'Git', img: '/images/Skills/Git.png', title: 'Git: 授業で習った程度' },
   { id: 'GitHub', img: '/images/Skills/GitHub.png', title: 'GitHub: 授業で習った程度' },
@@ -48,12 +56,15 @@ const primarySkills = [
 
 const otherSkills = [
   { id: 'Fusion 360', img: '/images/Skills/fusion.png', title: 'Fusion 360: ポリゴンのモデリングの代用で利用しています。' },
-  { id: 'Blender', img: '/images/Skills/blender.png', title: 'Blender: UV展開で利用しています。' },
+  { id: 'Blender', img: '/images/Skills/blender.png', title: 'Blender: モデリングで利用しています。' },
+  { id: 'MagicQ', img: '/images/Skills/magicq.png', title: 'MagicQ: 照明オペレーションをしています。' },
   { id: 'OBS', img: '/images/Skills/OBS.png', title: 'OBS: 配信環境構築・実際に配信しています。' },
   { id: 'AviUtl', img: '/images/Skills/Aviutl.png', title: 'AviUtl: 動画編集しています。' },
+  { id: 'AviUtl2', img: '/images/Skills/Aviutl2.png', title: 'AviUtl2: 動画編集しています。' },
   { id: 'paint.net', img: '/images/Skills/paintnet.png', title: 'paint.net: 画像編集しています。' },
   { id: 'rekordbox', img: '/images/Skills/rekordbox.png', title: 'rekordbox: ネットでDJデビューしました。' },
   { id: 'MMD', img: '/images/Skills/MMD.png', title: 'MMD: いくつかの映像作品を投稿しています。' },
+  { id: 'Studio One 5', img: '/images/Skills/studioone.png', title: 'Studio One 5: マスタリングをしています。' },
   { id: 'MS365', img: '/images/Skills/MS360.png', title: 'Microsoft 365: 事務業務等しています。' },
 ]
 
@@ -121,7 +132,7 @@ const links = [
             :data-lightbox="'skills'"
             class="group flex flex-col items-center gap-4 p-6 rounded-[2rem] bg-gray-900/30 border border-gray-800 hover:border-cyan-400 hover:bg-gray-900/60 transition-all duration-300 shadow-inner"
           >
-            <img :src="skill.img" :alt="skill.id" class="w-16 h-16 object-contain grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500" />
+            <img :src="skill.img" :alt="skill.id" class="w-16 h-16 object-contain transition-all duration-500 group-hover:scale-110" />
             <span class="text-xs font-black text-gray-500 group-hover:text-cyan-400 transition-colors uppercase tracking-widest">{{ skill.id }}</span>
           </a>
         </div>
@@ -136,7 +147,7 @@ const links = [
                 :data-lightbox="'skills-other'"
                 class="group flex flex-col items-center gap-4 p-6 rounded-[2rem] bg-gray-950/50 border border-gray-900 hover:border-fuchsia-400 transition-all duration-300"
               >
-                <img :src="skill.img" :alt="skill.id" class="w-16 h-16 object-contain grayscale opacity-30 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500" />
+                <img :src="skill.img" :alt="skill.id" class="w-16 h-16 object-contain transition-all duration-500 group-hover:scale-110" />
                 <span class="text-[10px] font-black text-gray-600 group-hover:text-fuchsia-400 transition-colors uppercase tracking-widest text-center">{{ skill.id }}</span>
               </a>
             </div>
