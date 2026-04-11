@@ -8,6 +8,16 @@ const { data: work } = await useAsyncData(`work-${workId}`, () => getWorkById(wo
 if (!work.value) {
   throw createError({ statusCode: 404, statusMessage: 'Work not found' })
 }
+
+// YouTube ID を抽出するヘルパー
+const getYoutubeId = (url: string | undefined) => {
+  if (!url) return null
+  const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/
+  const match = url.match(regExp)
+  return (match && match[2] && match[2].length === 11) ? match[2] : null
+}
+
+const youtubeId = computed(() => getYoutubeId(work.value?.youtube_url))
 </script>
 
 <template>
@@ -43,7 +53,18 @@ if (!work.value) {
 
         <div v-if="work.detail" class="p-10 rounded-[2.5rem] bg-gray-900 border border-gray-800 shadow-2xl">
           <h3 class="text-lg font-black text-fuchsia-400 uppercase tracking-widest mb-6 border-b border-gray-800 pb-4">Project Details</h3>
-          <div class="text-gray-300 font-medium leading-relaxed text-base prose prose-invert max-w-none" v-html="work.detail"></div>
+          <div class="text-gray-300 font-medium leading-relaxed text-base prose prose-invert prose-cyan max-w-none" v-html="work.detail"></div>
+        </div>
+
+        <!-- YouTube Embed -->
+        <div v-if="youtubeId" class="rounded-[2.5rem] overflow-hidden border border-gray-800 shadow-2xl bg-black aspect-video">
+          <iframe
+            :src="`https://www.youtube.com/embed/${youtubeId}`"
+            class="w-full h-full"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
         </div>
 
         <div v-if="work.images && work.images.length > 0" class="grid gap-6">

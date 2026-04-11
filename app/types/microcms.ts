@@ -16,6 +16,7 @@ export interface Work {
     url: string
   }[]
   href: string
+  youtube_url?: string
 }
 
 export interface MicroCMSResponse<T> {

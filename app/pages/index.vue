@@ -1,7 +1,20 @@
 <script setup lang="ts">
 const { getWorks } = useMicroCMS()
-const { data: worksResponse } = await useAsyncData('latest-works', () => getWorks({ limit: 5 }))
-const latestWorks = computed(() => worksResponse.value?.contents || [])
+
+// 全データから各カテゴリの最新1件を抽出するために多めに取得
+const { data: worksResponse } = await useAsyncData('all-works-home', () => getWorks({ limit: 50 }))
+const allWorks = computed(() => worksResponse.value?.contents || [])
+
+const latestProduct = computed(() => allWorks.value.find(w => w.category?.slug === 'products'))
+const latestMovie = computed(() => allWorks.value.find(w => w.category?.slug === 'movie'))
+const latestEvent = computed(() => allWorks.value.find(w => w.category?.slug === 'events-lighting'))
+
+// 表示用の配列
+const featuredWorks = computed(() => [
+  { work: latestProduct.value, label: 'Products', subLabel: 'プロダクト制作' },
+  { work: latestMovie.value, label: 'Movie', subLabel: '映像制作' },
+  { work: latestEvent.value, label: 'Events / Lighting', subLabel: 'イベント運営 / 照明' }
+].filter(item => item.work))
 
 const navItems = [
   { label: 'About me', href: '#About' },
@@ -38,7 +51,6 @@ const otherSkills = [
   { id: 'MMD', img: '/images/Skills/MMD.png', title: 'MMD: いくつかの映像作品を投稿しています。' },
   { id: 'MS365', img: '/images/Skills/MS360.png', title: 'Microsoft 365: 事務業務等しています。' },
 ]
-
 
 const links = [
   { label: '学友会執行部 公式X（旧Twitter）', href: 'https://x.com/omuct_gakuyukai' },
@@ -129,40 +141,45 @@ const links = [
 
       <Divider />
 
-      <!-- ── Works Preview ── -->
+      <!-- ── Featured Works (Latest per Category) ── -->
       <section id="WorksPreview" class="py-24 scroll-mt-24">
         <div class="flex items-center justify-between mb-12">
-          <SectionTitle>Latest Works</SectionTitle>
+          <SectionTitle>Works</SectionTitle>
           <NuxtLink to="/works" class="text-sm font-black text-fuchsia-400 hover:text-fuchsia-300 transition-colors uppercase tracking-widest flex items-center gap-2 group">
             View All <span class="group-hover:translate-x-1 transition-transform">→</span>
           </NuxtLink>
         </div>
-        <div class="grid gap-8">
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
           <NuxtLink
-            v-for="work in latestWorks"
-            :key="work.id"
-            :to="`/works/${work.id}`"
-            class="group block"
+            v-for="item in featuredWorks"
+            :key="item.work.id"
+            :to="`/works/${item.work.id}`"
+            class="group block relative overflow-hidden rounded-[2.5rem] bg-gray-900 border border-gray-800 hover:border-cyan-400/50 transition-all duration-500 shadow-2xl"
           >
-            <div class="p-8 rounded-[2.5rem] bg-gray-900/50 border border-gray-800 group-hover:border-cyan-400/50 group-hover:bg-gray-900 transition-all duration-500 shadow-xl">
-              <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
-                <div>
-                  <h3 class="text-2xl font-black text-white group-hover:text-cyan-400 transition-colors leading-tight mb-2">
-                    {{ work.title }}
-                  </h3>
-                  <p class="text-xs text-gray-500 font-bold uppercase tracking-widest">
-                    {{ work.period }}
-                  </p>
-                </div>
-                <div class="flex -space-x-3 overflow-hidden" v-if="work.images.length > 0">
-                  <img
-                    v-for="(img, idx) in work.images.slice(0, 3)"
-                    :key="idx"
-                    :src="img.url"
-                    class="inline-block h-12 w-12 rounded-full ring-4 ring-gray-900 object-cover"
-                  />
-                </div>
+            <!-- Thumbnail Logic -->
+            <div v-if="item.work.images && item.work.images.length > 0" class="aspect-video overflow-hidden border-b border-gray-800">
+              <img
+                :src="item.work.images[0].url"
+                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
+              />
+            </div>
+
+            <div class="p-8">
+              <div class="mb-4">
+                <span class="text-[10px] font-black text-cyan-400 uppercase tracking-widest block mb-1">
+                  {{ item.label }}
+                </span>
+                <span class="text-[9px] font-bold text-gray-600 uppercase tracking-widest block">
+                  {{ item.subLabel }}
+                </span>
               </div>
+              <h3 class="text-xl font-black text-white group-hover:text-cyan-400 transition-colors leading-tight line-clamp-2">
+                {{ item.work.title }}
+              </h3>
+              <p class="text-[10px] text-gray-500 font-bold uppercase tracking-widest mt-4">
+                {{ item.work.period }}
+              </p>
             </div>
           </NuxtLink>
         </div>
@@ -198,10 +215,10 @@ const links = [
           <div class="relative z-10 max-w-lg">
             <h4 class="text-4xl font-black mb-6 tracking-tighter text-white">Contact Info</h4>
             <div class="space-y-4">
-              <p class="inline-block bg-white/10 px-6 py-4 rounded-2xl backdrop-blur-md border border-white/20 font-mono font-bold text-white text-lg w-full">
+              <p class="inline-block bg-white/10 px-6 py-4 rounded-2xl backdrop-blur-md border border-white/20 font-mono font-bold text-white text-base sm:text-lg w-full break-all">
                 nakamine[at]saphir-vis.com
               </p>
-              <p class="inline-block bg-white/10 px-6 py-4 rounded-2xl backdrop-blur-md border border-white/20 font-mono font-bold text-white text-lg w-full">
+              <p class="inline-block bg-white/10 px-6 py-4 rounded-2xl backdrop-blur-md border border-white/20 font-mono font-bold text-white text-base sm:text-lg w-full break-all">
                 rj23098g[at]yahoo.co.jp
               </p>
             </div>
