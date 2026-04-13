@@ -40,7 +40,7 @@ const primarySkills = [
   { id: 'CSS3', img: '/images/Skills/CSS3.png', title: 'CSS3: 授業・独学で習った程度' },
   { id: 'JavaScript', img: '/images/Skills/JavaScript.png', title: 'JavaScript: 授業で習った程度' },
   { id: 'TypeScript', img: '/images/Skills/TypeScript.png', title: 'TypeScript: 授業で習った程度' },
-  { id: 'React', img: '/images/Skills/react.png', title: 'React: 授業で習った程度' },
+  { id: 'React', img: '/images/Skills/React.png', title: 'React: 授業で習った程度' },
   { id: 'Next.js', img: '/images/Skills/Nextjs.png', title: 'Next.js: 授業で習った程度' },
   { id: 'Nuxt.js', img: '/images/Skills/Nuxtjs.png', title: 'Nuxt.js: 独学で習った程度' },
   { id: 'Tailwind CSS', img: '/images/Skills/tailwind.png', title: 'Tailwind CSS: 授業で習った程度' },
@@ -51,13 +51,13 @@ const primarySkills = [
   { id: 'Arduino', img: '/images/Skills/Arduino.png', title: 'Arduino: 授業で習った程度' },
   { id: 'Git', img: '/images/Skills/Git.png', title: 'Git: 授業で習った程度' },
   { id: 'GitHub', img: '/images/Skills/GitHub.png', title: 'GitHub: 授業で習った程度' },
-  { id: 'Tinkercad', img: '/images/Skills/tinkercad.png', title: 'Tinkercad: 授業で習った程度' },
+  { id: 'Tinkercad', img: '/images/Skills/TinkerCAD.png', title: 'Tinkercad: 授業で習った程度' },
 ]
 
 const otherSkills = [
   { id: 'Fusion 360', img: '/images/Skills/fusion.png', title: 'Fusion 360: ポリゴンのモデリングの代用で利用しています。' },
   { id: 'Blender', img: '/images/Skills/blender.png', title: 'Blender: モデリングで利用しています。' },
-  { id: 'MagicQ', img: '/images/Skills/magicq.png', title: 'MagicQ: 照明オペレーションをしています。' },
+  { id: 'MagicQ', img: '/images/Skills/MagicQ.png', title: 'MagicQ: 照明オペレーションをしています。' },
   { id: 'OBS', img: '/images/Skills/OBS.png', title: 'OBS: 配信環境構築・実際に配信しています。' },
   { id: 'AviUtl', img: '/images/Skills/Aviutl.png', title: 'AviUtl: 動画編集しています。' },
   { id: 'AviUtl2', img: '/images/Skills/Aviutl2.png', title: 'AviUtl2: 動画編集しています。' },
