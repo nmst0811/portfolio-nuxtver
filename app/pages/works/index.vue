@@ -17,29 +17,11 @@ const events = computed(() => allWorks.value.filter(w => w.category?.slug === 'e
     </div>
 
     <div class="space-y-24">
-      <!-- Products -->
-      <section v-if="products.length > 0">
-        <div class="flex items-center gap-4 mb-10">
-          <h3 class="text-xl font-black text-white uppercase tracking-widest pl-4 border-l-4 border-cyan-400">Products</h3>
-          <span class="text-xs font-bold text-gray-500 uppercase tracking-widest">プロダクト制作</span>
-        </div>
-        <div class="grid gap-12">
-          <NuxtLink
-            v-for="work in products"
-            :key="work.id"
-            :to="`/works/${work.id}`"
-            class="group block"
-          >
-            <WorkCard :work="work" class="pointer-events-none" />
-          </NuxtLink>
-        </div>
-      </section>
-
       <!-- Movie -->
       <section v-if="movies.length > 0">
         <div class="flex items-center gap-4 mb-10">
-          <h3 class="text-xl font-black text-white uppercase tracking-widest pl-4 border-l-4 border-fuchsia-400">Movie</h3>
-          <span class="text-xs font-bold text-gray-500 uppercase tracking-widest">映像制作</span>
+          <h3 class="text-xl font-black text-white uppercase tracking-widest pl-4 border-l-4 border-fuchsia-400">Movie / Virtual</h3>
+          <span class="text-xs font-bold text-gray-500 uppercase tracking-widest">映像制作 / バーチャル作品</span>
         </div>
         <div class="grid gap-12">
           <NuxtLink
@@ -62,6 +44,24 @@ const events = computed(() => allWorks.value.filter(w => w.category?.slug === 'e
         <div class="grid gap-12">
           <NuxtLink
             v-for="work in events"
+            :key="work.id"
+            :to="`/works/${work.id}`"
+            class="group block"
+          >
+            <WorkCard :work="work" class="pointer-events-none" />
+          </NuxtLink>
+        </div>
+      </section>
+
+      <!-- Products -->
+      <section v-if="products.length > 0">
+        <div class="flex items-center gap-4 mb-10">
+          <h3 class="text-xl font-black text-white uppercase tracking-widest pl-4 border-l-4 border-cyan-400">Products</h3>
+          <span class="text-xs font-bold text-gray-500 uppercase tracking-widest">プロダクト制作</span>
+        </div>
+        <div class="grid gap-12">
+          <NuxtLink
+            v-for="work in products"
             :key="work.id"
             :to="`/works/${work.id}`"
             class="group block"
