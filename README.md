@@ -19,4 +19,4 @@ URL: https://portfolio-saphir-vis.com
 - CSS
 - JavaScript
 
-(2024.10~2026.04)
+(2024.10~2026.10)
